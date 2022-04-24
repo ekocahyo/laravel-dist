@@ -2,6 +2,7 @@ FROM composer AS build
 ENV CACHE_DRIVER=file
 WORKDIR /src
 COPY . .
+RUN mv .env.example .env
 RUN composer install
 RUN php artisan key:generate
 
